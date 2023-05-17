@@ -4,7 +4,26 @@
 {% block content %}
 
 <div class = "col-md-6 offset-md-3">
+{% if user.is_authenticated %}
 <h1>Hello world</h1>
-</div>
+{% else %}
+<h1>Login</h1>
+<form method="post" action="{% url 'home' %}">
+    {% csrf_token %}
 
+    <form>
+        <div class="mb-3">
+         <input type="text" class="form-control"  placeholder="First name" name = "username" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          
+          <input type="password" class="form-control" placeholder="Password" name ="password" >
+        </div>
+       
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+</form>
+</div>
+{% endif %}
 {% endblock %}
