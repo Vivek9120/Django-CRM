@@ -14,4 +14,4 @@ curserObject = dataBase.cursor()
 #create a database
 
 curserObject.execute("CREATE DATABASE djangopro")
-print("All done")
+print("All done ")
