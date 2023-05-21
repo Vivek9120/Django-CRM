@@ -3,9 +3,48 @@
 
 {% block content %}
 
-<div class = "col-md-6 offset-md-3">
+{% comment %} <div class = "col-md-6 offset-md-3"> {% endcomment %}
 {% if user.is_authenticated %}
-<h1>Hello world</h1>
+{% comment %} <h1>Records</h1> {% endcomment %}
+<table class="table table-light table-hover">
+  <thead class ="table-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone no</th>
+      <th scope="col">Address</th>
+      <th scope="col">City</th>
+      <th scope="col">State</th>
+      <th scope="col">Zipcode</th>
+      <th scope="col">Created at</th>
+      <th scope="col">ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% if recordss %}
+    {% for records in recordss %}
+    <tr><td>{{ records.first_name }}
+    {{ records.last_name }}</td>
+    <td>{{ records.email }}</td>
+    <td>{{ records.phone }}</td>
+    <td>{{ records.address }}</td>
+    <td>{{ records.city }}</td>
+   <td> {{ records.state }}</td>
+   <td> {{ records.zipcode }}</td>
+    <td>{{ records.created_at }}</td>
+    <td>{{ records.id }}</td>
+    <br/>
+    </tr>
+    {% endfor %}
+    {%endif%}
+  </tbody>
+</table>
+
+
+
+
+
+
 {% else %}
 <h1>Login</h1>
 <form method="post" action="{% url 'home' %}">
