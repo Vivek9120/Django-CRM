@@ -32,7 +32,7 @@
    <td> {{ records.state }}</td>
    <td> {{ records.zipcode }}</td>
     <td>{{ records.created_at }}</td>
-    <td>{{ records.id }}</td>
+    <td><a href="{% url 'record' records.id %}">{{ records.id }}</a></td>
     <br/>
     </tr>
     {% endfor %}
